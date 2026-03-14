@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">JobPortal</div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="jobs.html">View Jobs</a>
+            <a href="add-job.html">Add Job</a>
+        </nav>
+    </header>
+
+    <main class="home-container">
+        <h1>Welcome to Job Portal</h1>
+        <p>Track your job applications all in one place.</p>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <h3 id="total-jobs">0</h3>
+                <p>Total Jobs</p>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <a href="add-job.html" class="btn">Add New Job</a>
+            <a href="jobs.html" class="btn btn-outline">View All Jobs</a>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        updateStats();
+    </script>
+</body>
+</html>

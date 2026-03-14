@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal - Add Job</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">JobPortal</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="jobs.html">View Jobs</a>
+            <a href="add-job.html" class="active">Add Job</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Add New Job</h1>
+        
+        <form id="add-job-form">
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" required placeholder="Enter company name">
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position</label>
+                <input type="text" id="position" required placeholder="Enter job title">
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" placeholder="Add any notes..."></textarea>
+            </div>
+
+            <button type="submit" class="btn">Add Job</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('date').valueAsDate = new Date();
+        
+        document.getElementById('add-job-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const job = {
+                id: Date.now(),
+                company: document.getElementById('company').value,
+                position: document.getElementById('position').value,
+                date: document.getElementById('date').value,
+                notes: document.getElementById('notes').value
+            };
+            
+            const jobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+            jobs.push(job);
+            localStorage.setItem('jobs', JSON.stringify(jobs));
+            
+            alert('Job added successfully!');
+            window.location.href = 'jobs.html';
+        });
+    </script>
+</body>
+</html>
